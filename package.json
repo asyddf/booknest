@@ -1,0 +1,18 @@
+{
+  "name": "booknest",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "BookNest: учебный проект по дисциплине Современные веб-технологии",
+  "author": "Ипатко Анастасия Дмитриевна",
+  "scripts": {
+    "lint": "eslint js tests",
+    "check": "node tests/lib.check.mjs",
+    "start": "python -m http.server 8000"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.13.0",
+    "globals": "^17.13.0"
+  }
+}
