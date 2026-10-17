@@ -1,0 +1,88 @@
+/* Базовые стили: сброс, типографика, фокус. */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  background: var(--c-paper);
+  color: var(--c-ink);
+  font: var(--fs-md) / var(--lh-body) var(--font-body);
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+ol,
+dl,
+dd,
+figure {
+  margin: 0;
+}
+
+ul,
+ol {
+  padding: 0;
+  list-style: none;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  line-height: var(--lh-tight);
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: var(--fs-xl);
+  font-weight: 400;
+  letter-spacing: var(--track-tight);
+}
+
+h2 {
+  font-size: var(--fs-lg);
+}
+
+h3 {
+  font-size: var(--fs-md);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--c-accent);
+  text-underline-offset: var(--underline);
+}
+
+:focus-visible {
+  outline: var(--focus-w) solid var(--c-accent);
+  outline-offset: var(--focus-w);
+}
+
+/* При включённом режиме уменьшения движения длительность анимации обнуляется через токен. */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur: 0ms;
+  }
+}

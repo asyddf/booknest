@@ -1,0 +1,108 @@
+/* Раскладка страниц. Адаптивность строится на flex-wrap, auto-fit и minmax, без media queries по ширине. */
+
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-2) var(--sp-4);
+  padding-block: var(--sp-2);
+  padding-inline: max(var(--sp-3), calc((100% - var(--page-max)) / 2));
+  background: var(--c-paper);
+  border-bottom: var(--bw) solid var(--c-line);
+}
+
+.nav__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-1) var(--sp-4);
+}
+
+.page {
+  width: min(100% - 2 * var(--sp-3), var(--page-max));
+  margin-inline: auto;
+  padding-block: var(--sp-5);
+  display: flex;
+  flex-wrap: wrap;
+  align-content: start;
+  gap: var(--sp-4);
+}
+
+.page__head {
+  flex: 1 1 100%;
+  display: grid;
+  gap: var(--sp-2);
+}
+
+.page__lead {
+  max-width: var(--measure);
+  color: var(--c-muted);
+}
+
+/* Боковой блок встаёт рядом с содержимым, когда хватает места, иначе уходит наверх. */
+.page__side {
+  flex: 1 1 var(--side-min);
+  align-self: start;
+  display: grid;
+  gap: var(--sp-3);
+}
+
+.page__content {
+  flex: 999 1 var(--main-min);
+  min-width: 0;
+  display: grid;
+  gap: var(--sp-3);
+  align-content: start;
+}
+
+.page__full {
+  flex: 1 1 100%;
+  display: grid;
+  gap: var(--sp-3);
+}
+
+.catalog {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--card-min)), 1fr));
+  gap: var(--sp-4);
+}
+
+.book {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  gap: var(--sp-3) var(--sp-4);
+}
+
+.book__head {
+  flex: 1 1 100%;
+  display: grid;
+  gap: var(--sp-1);
+}
+
+.book__cover {
+  flex: 0 1 var(--cover-w);
+  display: grid;
+  gap: var(--sp-2);
+}
+
+.book__facts,
+.book__about {
+  flex: 1 1 var(--info-min);
+  display: grid;
+  gap: var(--sp-3);
+}
+
+.reviews {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--card-min)), 1fr));
+  gap: var(--sp-3);
+}
+
+.site-footer {
+  padding-block: var(--sp-4);
+  padding-inline: max(var(--sp-3), calc((100% - var(--page-max)) / 2));
+  border-top: var(--bw) solid var(--c-line);
+  color: var(--c-muted);
+  font-size: var(--fs-sm);
+}

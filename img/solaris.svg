@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="340" viewBox="0 0 240 340">
+  <rect width="240" height="340" fill="#13222f"/>
+  <circle cx="120" cy="140" r="78" fill="none" stroke="#5ccfb8" stroke-width="6"/>
+  <circle cx="120" cy="140" r="48" fill="#0b6b5c"/>
+  <circle cx="120" cy="140" r="16" fill="#e6ecef"/>
+  <text x="120" y="270" text-anchor="middle" font-family="Georgia, 'DejaVu Serif', serif" font-size="30" font-weight="700" fill="#e6ecef">СОЛЯРИС</text>
+  <text x="120" y="304" text-anchor="middle" font-family="Georgia, 'DejaVu Serif', serif" font-size="15" fill="#9fb0bc">Станислав Лем</text>
+</svg>

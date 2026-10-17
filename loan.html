@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Ипатко Анастасия Дмитриевна">
+  <meta name="description" content="Форма выдачи книги в книжном клубе BookNest.">
+  <title>Выдача книги — BookNest</title>
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles/tokens.css">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/layout.css">
+  <link rel="stylesheet" href="styles/components.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html">BookNest</a>
+    <nav class="nav" aria-label="Основная навигация">
+      <ul class="nav__list">
+        <li><a class="nav__link" href="index.html">Каталог</a></li>
+        <li><a class="nav__link" href="book.html">Карточка книги</a></li>
+        <li><a class="nav__link" href="loan.html" aria-current="page">Выдача книги</a></li>
+        <li><a class="nav__link" href="index.html#wishlist">Мой список</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="page">
+    <header class="page__head">
+      <h1>Выдача книги</h1>
+      <p class="page__lead">Заполните форму, и библиотекарь клуба подготовит книгу к выдаче.</p>
+    </header>
+
+    <section class="page__content" aria-labelledby="loan-title">
+      <h2 id="loan-title">Заявка на выдачу</h2>
+      <form class="form" action="#" method="get">
+        <fieldset class="fieldset fieldset--cols">
+          <legend class="fieldset__legend">Читатель</legend>
+          <p class="field">
+            <label class="field__label" for="full-name">Фамилия и имя</label>
+            <input class="field__control" id="full-name" name="full_name" type="text" required minlength="5" maxlength="80" autocomplete="name">
+          </p>
+          <p class="field">
+            <label class="field__label" for="email">Электронная почта</label>
+            <input class="field__control" id="email" name="email" type="email" required autocomplete="email">
+          </p>
+          <p class="field">
+            <label class="field__label" for="phone">Телефон в формате +77001234567</label>
+            <input class="field__control" id="phone" name="phone" type="tel" required pattern="\+7[0-9]{10}" title="Телефон в формате +77001234567" autocomplete="tel">
+          </p>
+          <p class="field">
+            <label class="field__label" for="card">Номер читательского билета</label>
+            <input class="field__control" id="card" name="card" type="text" required inputmode="numeric" pattern="[0-9]{6}" title="Шесть цифр">
+          </p>
+        </fieldset>
+
+        <fieldset class="fieldset fieldset--cols">
+          <legend class="fieldset__legend">Книга и срок</legend>
+          <p class="field field--wide">
+            <label class="field__label" for="book">Книга</label>
+            <select class="field__control" id="book" name="book" required>
+              <option value="">Выберите книгу</option>
+              <option value="1">Солярис, Станислав Лем</option>
+              <option value="9">Преступление и наказание, Фёдор Достоевский</option>
+              <option value="13">Путь Абая, Мухтар Ауэзов</option>
+              <option value="34">Хоббит, Дж. Р. Р. Толкин</option>
+              <option value="27">Космос, Карл Саган</option>
+              <option value="17">Убийство в Восточном экспрессе, Агата Кристи</option>
+            </select>
+          </p>
+          <p class="field">
+            <label class="field__label" for="copies">Количество экземпляров</label>
+            <input class="field__control" id="copies" name="copies" type="number" required min="1" max="3" value="1">
+          </p>
+          <p class="field">
+            <label class="field__label" for="loan-date">Дата выдачи</label>
+            <input class="field__control" id="loan-date" name="loan_date" type="date" required>
+          </p>
+          <p class="field">
+            <label class="field__label" for="return-date">Вернуть до</label>
+            <input class="field__control" id="return-date" name="return_date" type="date" required>
+          </p>
+        </fieldset>
+
+        <fieldset class="fieldset">
+          <legend class="fieldset__legend">Дополнительно</legend>
+          <p class="field field--wide">
+            <label class="field__label" for="comment">Комментарий библиотекарю</label>
+            <textarea class="field__control" id="comment" name="comment" rows="3" maxlength="300"></textarea>
+          </p>
+          <p class="field field--check">
+            <input class="field__check" id="agree" name="agree" type="checkbox" required>
+            <label for="agree">Обязуюсь вернуть книгу в срок</label>
+          </p>
+          <p class="form__actions">
+            <button class="btn" type="submit">Отправить заявку</button>
+            <button class="btn btn--ghost" type="reset">Очистить форму</button>
+          </p>
+        </fieldset>
+      </form>
+    </section>
+
+    <aside class="page__side" aria-labelledby="rules-title">
+      <h2 id="rules-title">Правила выдачи</h2>
+      <ul class="similar">
+        <li>Одна заявка выдаёт до трёх экземпляров.</li>
+        <li>Срок выдачи не больше 21 дня.</li>
+        <li>Книгу можно вернуть раньше срока.</li>
+      </ul>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <p>BookNest — учебный проект Ипатко Анастасии Дмитриевны, 2026.</p>
+  </footer>
+</body>
+</html>

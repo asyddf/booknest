@@ -1,0 +1,376 @@
+/* Компоненты. Имена классов построены по схеме блок__элемент--модификатор. */
+
+/* Логотип: просто слово с засечками */
+.brand {
+  color: var(--c-ink);
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  letter-spacing: var(--track-wide);
+  text-decoration: none;
+}
+
+/* Навигация */
+.nav__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  min-block-size: var(--tap);
+  border-block-end: var(--bw-strong) solid transparent;
+  color: var(--c-muted);
+  text-decoration: none;
+  transition: color var(--dur), border-color var(--dur);
+}
+
+.nav__link:hover {
+  color: var(--c-ink);
+  border-block-end-color: var(--c-line);
+}
+
+.nav__link[aria-current="page"] {
+  color: var(--c-ink);
+  border-block-end-color: var(--c-accent);
+}
+
+.nav__count {
+  min-inline-size: var(--count-min);
+  padding-inline: var(--sp-1);
+  border-radius: var(--radius-pill);
+  background: var(--c-accent);
+  color: var(--c-accent-ink);
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  text-align: center;
+}
+
+/* Хлебные крошки */
+.crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-1) var(--sp-2);
+  color: var(--c-muted);
+  font-size: var(--fs-sm);
+}
+
+.crumbs__item:not(:first-child)::before {
+  content: "/";
+  padding-inline-end: var(--sp-2);
+}
+
+/* Кнопки */
+.btn {
+  min-block-size: var(--tap);
+  padding-inline: var(--sp-3);
+  border: var(--bw) solid var(--c-accent);
+  border-radius: var(--radius-sm);
+  background: var(--c-accent);
+  color: var(--c-accent-ink);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--dur), color var(--dur);
+}
+
+.btn--ghost {
+  border-color: var(--c-edge);
+  background: transparent;
+  color: var(--c-ink);
+}
+
+.btn--ghost:hover {
+  border-color: var(--c-accent);
+  background: var(--c-accent-soft);
+  color: var(--c-accent);
+}
+
+.btn[aria-pressed="true"] {
+  border-color: var(--c-ok);
+  color: var(--c-ok);
+}
+
+.btn:disabled {
+  opacity: var(--faded);
+  cursor: not-allowed;
+}
+
+/* Карточка книги в каталоге: цветной корешок слева задаётся жанром */
+.catalog__item {
+  display: grid;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  padding: var(--sp-4);
+  overflow: hidden;
+  background: var(--c-surface);
+  border: var(--bw) solid var(--c-line);
+  border-radius: var(--radius);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline: 0;
+  block-size: var(--spine-w);
+  background: var(--spine, var(--c-accent));
+}
+
+.card--scifi {
+  --spine: var(--g-scifi);
+}
+
+.card--classic {
+  --spine: var(--g-classic);
+}
+
+.card--detective {
+  --spine: var(--g-detective);
+}
+
+.card--science {
+  --spine: var(--g-science);
+}
+
+.card--fantasy {
+  --spine: var(--g-fantasy);
+}
+
+.card__title {
+  font-size: var(--fs-lg);
+  font-weight: 600;
+}
+
+.card__title a {
+  color: var(--c-ink);
+  text-decoration: none;
+}
+
+.card__title a:hover {
+  text-decoration: underline;
+}
+
+.card__author {
+  font-weight: 600;
+}
+
+.card__meta {
+  color: var(--c-muted);
+  font-size: var(--fs-sm);
+}
+
+.card__foot {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: end;
+  gap: var(--sp-2);
+}
+
+.status {
+  font-size: var(--fs-sm);
+  font-weight: 700;
+}
+
+.status::before {
+  content: "";
+  display: inline-block;
+  inline-size: var(--dot);
+  block-size: var(--dot);
+  margin-inline-end: var(--sp-1);
+  border-radius: var(--radius-round);
+  background: currentcolor;
+}
+
+.status--ok {
+  color: var(--c-ok);
+}
+
+.status--off {
+  color: var(--c-muted);
+}
+
+.catalog__count {
+  color: var(--c-muted);
+  font-size: var(--fs-sm);
+}
+
+.notice {
+  padding: var(--sp-3);
+  border: var(--bw) dashed var(--c-line);
+  border-radius: var(--radius);
+  color: var(--c-muted);
+}
+
+/* Список желаемого */
+.wishlist__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--card-min)), 1fr));
+  gap: var(--sp-2);
+}
+
+.wishlist__item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-2);
+  padding: var(--sp-2) var(--sp-3);
+  background: var(--c-surface);
+  border: var(--bw) solid var(--c-line);
+  border-radius: var(--radius);
+}
+
+.wishlist__text {
+  display: grid;
+}
+
+.wishlist__author {
+  color: var(--c-muted);
+  font-size: var(--fs-sm);
+}
+
+/* Формы */
+.form {
+  display: grid;
+  gap: var(--sp-4);
+}
+
+.fieldset {
+  display: grid;
+  gap: var(--sp-3);
+  min-inline-size: 0;
+  margin: 0;
+  padding: var(--sp-3);
+  background: var(--c-surface);
+  border: var(--bw) solid var(--c-line);
+  border-radius: var(--radius);
+}
+
+.fieldset--cols {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--field-min)), 1fr));
+}
+
+.fieldset__legend {
+  padding-inline: var(--sp-2);
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: 700;
+}
+
+.field {
+  display: grid;
+  gap: var(--sp-1);
+  align-content: start;
+}
+
+.field--wide {
+  grid-column: 1 / -1;
+}
+
+.field--check {
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.field__label {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+}
+
+.field__control {
+  inline-size: 100%;
+  min-block-size: var(--tap);
+  padding: var(--sp-2) var(--sp-3);
+  border: var(--bw) solid var(--c-edge);
+  border-radius: var(--radius-sm);
+  background: var(--c-surface);
+  color: var(--c-ink);
+  font: inherit;
+  transition: border-color var(--dur);
+}
+
+.field__control:hover {
+  border-color: var(--c-ink);
+}
+
+.field__control:user-invalid {
+  border-color: var(--c-danger);
+}
+
+.field__control:disabled {
+  opacity: var(--faded);
+  cursor: not-allowed;
+}
+
+.field__check {
+  inline-size: var(--check);
+  block-size: var(--check);
+  accent-color: var(--c-accent);
+}
+
+.filters {
+  display: grid;
+  gap: var(--sp-3);
+}
+
+.filters__actions,
+.form__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+/* Карточка книги: характеристики и отзывы */
+.book__author {
+  color: var(--c-muted);
+  font-size: var(--fs-lg);
+}
+
+.book__caption {
+  color: var(--c-muted);
+  font-size: var(--fs-sm);
+}
+
+.book__cover img {
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.book__about {
+  max-width: var(--measure);
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: minmax(auto, max-content) 1fr;
+  gap: var(--sp-2) var(--sp-4);
+}
+
+.facts dt {
+  color: var(--c-muted);
+}
+
+.review {
+  display: grid;
+  gap: var(--sp-2);
+  padding: var(--sp-3);
+  background: var(--c-surface);
+  border: var(--bw) solid var(--c-line);
+  border-radius: var(--radius);
+}
+
+.review__meta {
+  color: var(--c-muted);
+  font-size: var(--fs-sm);
+}
+
+.similar {
+  display: grid;
+  gap: var(--sp-2);
+}

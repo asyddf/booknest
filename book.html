@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Ипатко Анастасия Дмитриевна">
+  <meta name="description" content="Карточка книги Солярис в книжном клубе BookNest: характеристики, описание и отзывы.">
+  <title>Солярис — BookNest</title>
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles/tokens.css">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/layout.css">
+  <link rel="stylesheet" href="styles/components.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html">BookNest</a>
+    <nav class="nav" aria-label="Основная навигация">
+      <ul class="nav__list">
+        <li><a class="nav__link" href="index.html">Каталог</a></li>
+        <li><a class="nav__link" href="book.html" aria-current="page">Карточка книги</a></li>
+        <li><a class="nav__link" href="loan.html">Выдача книги</a></li>
+        <li><a class="nav__link" href="index.html#wishlist">Мой список</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="page">
+    <nav class="page__head" aria-label="Хлебные крошки">
+      <ol class="crumbs">
+        <li class="crumbs__item"><a href="index.html">Каталог</a></li>
+        <li class="crumbs__item"><a href="index.html">Фантастика</a></li>
+        <li class="crumbs__item" aria-current="page">Солярис</li>
+      </ol>
+    </nav>
+
+    <article class="page__full book">
+      <header class="book__head">
+        <h1>Солярис</h1>
+        <p class="book__author">Станислав Лем</p>
+      </header>
+
+      <figure class="book__cover">
+        <img src="img/solaris.svg" width="240" height="340" alt="Обложка книги Солярис: тёмный фон, светлое кольцо планеты и название крупными буквами">
+        <figcaption class="book__caption">Обложка издания клуба</figcaption>
+      </figure>
+
+      <section class="book__facts" aria-labelledby="facts-title">
+        <h2 id="facts-title">Характеристики</h2>
+        <dl class="facts">
+          <dt>Автор</dt>
+          <dd>Станислав Лем</dd>
+          <dt>Год первого издания</dt>
+          <dd><time datetime="1961">1961</time></dd>
+          <dt>Жанр</dt>
+          <dd>Фантастика</dd>
+          <dt>Язык</dt>
+          <dd>Русский, перевод с польского</dd>
+          <dt>Рейтинг клуба</dt>
+          <dd>4,6 из 5</dd>
+          <dt>Экземпляры</dt>
+          <dd>Всего 3, свободно 2</dd>
+        </dl>
+      </section>
+
+      <section class="book__about" aria-labelledby="about-title">
+        <h2 id="about-title">Описание</h2>
+        <p>Психолог Крис Кельвин прибывает на исследовательскую станцию над океаном далёкой планеты Солярис. Океан живой и разумный. Он по-своему отвечает на присутствие людей и возвращает им самые тяжёлые воспоминания.</p>
+        <p>Роман о границах познания и о том, что человек способен понять только то, что похоже на него самого.</p>
+      </section>
+    </article>
+
+    <section class="page__content" aria-labelledby="reviews-title">
+      <h2 id="reviews-title">Отзывы читателей</h2>
+      <p class="book__caption">Отзывы вымышлены и написаны для примера.</p>
+      <ul class="reviews">
+        <li>
+          <article class="review">
+            <h3 class="review__title">Книга, которую хочется обсуждать</h3>
+            <p class="review__meta">Данияр, <time datetime="2026-09-12">12 сентября 2026</time>, оценка 5 из 5</p>
+            <p>Читал на сессии вместо конспектов и не пожалел. Финал оставил больше вопросов, чем ответов.</p>
+          </article>
+        </li>
+        <li>
+          <article class="review">
+            <h3 class="review__title">Медленно, но стоит дочитать</h3>
+            <p class="review__meta">Айгерим, <time datetime="2026-09-28">28 сентября 2026</time>, оценка 4 из 5</p>
+            <p>Первые главы тяжёлые. Дальше затягивает, а описания океана запоминаются надолго.</p>
+          </article>
+        </li>
+      </ul>
+
+      <form class="form" action="#" method="get">
+        <fieldset class="fieldset">
+          <legend class="fieldset__legend">Новый отзыв</legend>
+          <p class="field">
+            <label class="field__label" for="review-name">Имя</label>
+            <input class="field__control" id="review-name" name="name" type="text" required maxlength="40" autocomplete="given-name">
+          </p>
+          <p class="field">
+            <label class="field__label" for="review-rating">Оценка</label>
+            <select class="field__control" id="review-rating" name="rating" required>
+              <option value="">Выберите оценку</option>
+              <option value="5">5 — отлично</option>
+              <option value="4">4 — хорошо</option>
+              <option value="3">3 — нормально</option>
+              <option value="2">2 — слабо</option>
+              <option value="1">1 — плохо</option>
+            </select>
+          </p>
+          <p class="field field--wide">
+            <label class="field__label" for="review-text">Текст отзыва</label>
+            <textarea class="field__control" id="review-text" name="text" rows="4" required minlength="10" maxlength="500"></textarea>
+          </p>
+          <p class="form__actions">
+            <button class="btn" type="submit">Отправить отзыв</button>
+          </p>
+        </fieldset>
+      </form>
+    </section>
+
+    <aside class="page__side" aria-labelledby="similar-title">
+      <h2 id="similar-title">Похожие книги</h2>
+      <ul class="similar">
+        <li><a href="book.html">Пикник на обочине</a>, Аркадий и Борис Стругацкие</li>
+        <li><a href="book.html">Задача трёх тел</a>, Лю Цысинь</li>
+        <li><a href="book.html">Я, робот</a>, Айзек Азимов</li>
+      </ul>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <p>BookNest — учебный проект Ипатко Анастасии Дмитриевны, 2026.</p>
+  </footer>
+</body>
+</html>
